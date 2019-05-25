@@ -71,6 +71,20 @@
 
 			
 			<script type="text/javascript">
+		
+				fetch('http://localhost:8080/api/parkings')
+					.then(response => response.json())
+					.then(data => {
+						//console.log(data);
+						
+						//console.log(data[0]);
+						
+						for(var i = 0; i < data.length; i+= 1){							
+							console.log("lat = " + data[i].locationLatitude + " lon = " + data[i].locationLongitude + " curA = " + data[i].currentAmount);
+						}
+						
+				});
+			
 				ymaps.ready(function () {
 					var MainMap = new ymaps.Map("MainMap", {
 			
@@ -81,52 +95,36 @@
 					});
 					MainMap.controls.add("typeSelector").add("zoomControl");
 					
-					 // Создаем геообъект с типом геометрии "Точка".
-				myGeoObject = new ymaps.GeoObject({
-					// Описание геометрии.
-					geometry: {
-						type: "Point",
-						coordinates: [56.8, 35.6]
-					},
-					// Свойства.
-					properties: {
-						// Контент метки.
-						iconContent: 'Х'
-					}
-				}, {
-					// Опции.
-					// Иконка метки будет растягиваться под размер ее содержимого.
-					preset: 'islands#blackStretchyIcon',
-					// Метку можно перемещать.
-					draggable: true
-				});
-					
-					
-				MainMap.geoObjects.add(myGeoObject)
+					fetch('http://localhost:8080/api/parkings')
+					.then(response => response.json())
+					.then(data => {		
+						for(var i = 0; i < data.length; i+= 1){							
+							console.log("lat = " + data[i].locationLatitude + " lon = " + data[i].locationLongitude + " curA = " + data[i].currentAmount);
+						
+							myGeoObject = new ymaps.GeoObject({
+							// Описание геометрии.
+							geometry: {
+								type: "Point",
+								coordinates: [data[i].locationLatitude, data[i].locationLongitude]
+							},
+							// Свойства.
+							properties: {
+								// Контент метки.
+								iconContent: data[i].currentAmount
+							}
+							}, {
+								// Опции.
+								preset: 'islands#blackStretchyIcon',
+								draggable: false
+							});
+							
+							MainMap.geoObjects.add(myGeoObject);
+							
+							}
+						
+					});
 				
-				var coords = [ [56.9, 35.15], [56.5, 35.4] ]
 				
-				for(i = 0; i < coords.length; i++) {
-					myGeoObject_t = new ymaps.GeoObject({
-					// Описание геометрии.
-					geometry: {
-						type: "Point",
-						coordinates: [coords[i][0], coords[i][1]]
-					},
-					// Свойства.
-					properties: {
-						// Контент метки.
-						iconContent: 'Sas'
-					}
-				}, {
-					// Опции.
-					// Иконка метки будет растягиваться под размер ее содержимого.
-					preset: 'islands#blackStretchyIcon',
-					// Метку можно перемещать.
-					draggable: true
-				});
-				MainMap.geoObjects.add(myGeoObject_t)
-				}
 				});
 				
 			</script>
