@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Bycity - велошеринг в Твери</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+  <!-- Custom styles for this template -->
+  <link href="css/landing-page.min.css" rel="stylesheet">
+  
+  <link rel="shortcut icon" href="./img/icons/bike.png" type="image/x-icon">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-light bg-light static-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Bycity</a>
+      <a class="btn btn-primary" href="#">Войти</a>
+    </div>
+  </nav>
+
+  <!-- Masthead -->
+  <header class="masthead text-white text-center">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <h1 class="mb-5">Первый тверской велошеринг</h1>
+        </div>
+        <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+          <form>
+            <div class="form-row">
+              <div class="col-12 col-md-9 mb-2 mb-md-0">
+                <input type="email" class="form-control form-control-lg" placeholder="Введите номер телефона">
+              </div>
+              <div class="col-12 col-md-3">
+                <button type="submit" class="btn btn-block btn-lg btn-primary">Регистрация</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+
+  <!-- Image Showcases -->
+  <section class="showcase">
+    <div class="container-fluid p-0">
+      <div class="row no-gutters">
+
+        <!--<div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('img/bc-showcase1.jpg');"></div>-->
+		<div class="col-lg-6 order-lg-2 text-white showcase-img">
+			<script src="http://api-maps.yandex.ru/2.0/?load=package.full&mode=release&lang=ru-RU" type="text/javascript"></script>
+
+			
+			<script type="text/javascript">
+				ymaps.ready(function () {
+					var MainMap = new ymaps.Map("MainMap", {
+			
+						center: [56.86, 35.90],
+						zoom: 11,
+						type: "yandex#map"
+			
+					});
+					MainMap.controls.add("typeSelector").add("zoomControl");
+					
+					 // Создаем геообъект с типом геометрии "Точка".
+				myGeoObject = new ymaps.GeoObject({
+					// Описание геометрии.
+					geometry: {
+						type: "Point",
+						coordinates: [56.8, 35.6]
+					},
+					// Свойства.
+					properties: {
+						// Контент метки.
+						iconContent: 'Х'
+					}
+				}, {
+					// Опции.
+					// Иконка метки будет растягиваться под размер ее содержимого.
+					preset: 'islands#blackStretchyIcon',
+					// Метку можно перемещать.
+					draggable: true
+				});
+					
+					
+				MainMap.geoObjects.add(myGeoObject)
+				
+				var coords = [ [56.9, 35.15], [56.5, 35.4] ]
+				
+				for(i = 0; i < coords.length; i++) {
+					myGeoObject_t = new ymaps.GeoObject({
+					// Описание геометрии.
+					geometry: {
+						type: "Point",
+						coordinates: [coords[i][0], coords[i][1]]
+					},
+					// Свойства.
+					properties: {
+						// Контент метки.
+						iconContent: 'Sas'
+					}
+				}, {
+					// Опции.
+					// Иконка метки будет растягиваться под размер ее содержимого.
+					preset: 'islands#blackStretchyIcon',
+					// Метку можно перемещать.
+					draggable: true
+				});
+				MainMap.geoObjects.add(myGeoObject_t)
+				}
+				});
+				
+			</script>
+			
+			<div id="MainMap" style="width:100%;height:480px;"></div>
+		</div>
+        <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+          <h2>Легко арендовать</h2>
+          <p class="lead mb-0">Для аренды вам нужен лишь телефон с поддержкой NFC. Велопарковки расположены по всей Твери</p>
+        </div>
+      </div>
+    </div>
+	
+  </section>
+
+  <!-- Icons Grid -->
+  <section class="features-icons bg-light text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+			<img class="img-fluid" src="./img/icons/bike.png"></img>
+            <h3>Мобильность</h3>
+            <p class="lead mb-0">В современном загруженном городе зачастую быстрее пользоваться велосипедом, а не автомобилем или общественным транспортом</p>
+        </div>
+        <div class="col-lg-4">
+			<img class="img-fluid" src="./img/icons/money.png"></img>
+            <h3>Низкие цены</h3>
+            <p class="lead mb-0">Нашим сервисом пользуются более 150 студентов Твери</p>
+        </div>
+        <div class="col-lg-4">
+			<img class="img-fluid" src="./img/icons/ecology.png"></img>
+            <h3>Важность экологии</h3>
+            <p class="lead mb-0">Борись с глобальным потеплением доступными тебе методами</p>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Image Showcases -->
+  <section class="showcase">
+    <div class="container-fluid p-0">
+      <div class="row no-gutters">
+
+        <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('img/bc-showcase1.jpg');"></div>
+        <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+          <h2>Легко арендовать</h2>
+          <p class="lead mb-0">Для аренды вам нужен лишь телефон с поддержкой NFC. Велопарковки расположены по всей Твери</p>
+        </div>
+      </div>
+      <div class="row no-gutters">
+        <div class="col-lg-6 text-white showcase-img" style="background-image: url('img/bc-showcase2.jpg');"></div>
+        <div class="col-lg-6 my-auto showcase-text">
+          <h2>Заботься о своем здоровье</h2>
+          <p class="lead mb-0">Частые поездки на велосипеде способствуют укреплению дыхательной и сердечно-сосудистой систем</p>
+        </div>
+      </div>
+    </div>
+	
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials text-center bg-light">
+    <div class="container">
+      <h2 class="mb-5">Отзывы</h2>
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+            <img class="img-fluid rounded-circle mb-3" src="img/user1.jpg" alt="">
+            <h5>Саша К.</h5>
+            <p class="font-weight-light mb-0">"Ребята проделали отличную работу, каждый день пользуюсь их сайтом"</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+            <img class="img-fluid rounded-circle mb-3" src="img/user2.jpg" alt="">
+            <h5>Илья Б.</h5>
+            <p class="font-weight-light mb-0">"Каждый день я добираюсь до тренажерного зала с помощью аренды велосипедов от Bycity"</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+            <img class="img-fluid rounded-circle mb-3" src="img/user3.jpg" alt="">
+            <h5>Илья А.</h5>
+            <p class="font-weight-light mb-0">"Когда друзья рассказали мне о Bycity, я не мог поверить, что аренда велосипеда стоит так мало"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="call-to-action text-white text-center">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <h2 class="mb-4"></h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+          <ul class="list-inline mb-2">
+            <li class="list-inline-item">
+              <a href="#">О нас</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="#">Контакты</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="#">Партнерам</a>
+            </li>
+          </ul>
+          <p class="text-muted small mb-4 mb-lg-0">&copy; Bycity 2019.</p>
+        </div>
+        <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+          <ul class="list-inline mb-0">
+            <li class="list-inline-item mr-3">
+              <a href="#">
+                <i class="fab fa-facebook fa-2x fa-fw"></i>
+              </a>
+            </li>
+            <li class="list-inline-item mr-3">
+              <a href="#">
+                <i class="fab fa-twitter-square fa-2x fa-fw"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <i class="fab fa-instagram fa-2x fa-fw"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

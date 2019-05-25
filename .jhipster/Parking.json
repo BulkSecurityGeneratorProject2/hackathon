@@ -1,0 +1,31 @@
+{
+    "name": "Parking",
+    "fields": [
+        {
+            "fieldName": "capacity",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "currentAmount",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "locationLatitude",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "locationLongitude",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190525165054",
+    "entityTableName": "parking",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

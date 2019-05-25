@@ -1,0 +1,11 @@
+version: '2'
+services:
+  hackathon-postgresql:
+    image: postgres:11.2
+    # volumes:
+    #     - ~/volumes/jhipster/hackathon/postgresql/:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=hackathon
+      - POSTGRES_PASSWORD=
+    ports:
+      - 5432:5432

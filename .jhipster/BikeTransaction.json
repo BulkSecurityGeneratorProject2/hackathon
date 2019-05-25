@@ -1,0 +1,39 @@
+{
+    "name": "BikeTransaction",
+    "fields": [
+        {
+            "fieldName": "startTime",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "endTime",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "userId",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "bikeId",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "startParkingId",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "endParkingId",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190525165055",
+    "entityTableName": "bike_transaction",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

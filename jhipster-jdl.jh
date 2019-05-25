@@ -1,0 +1,70 @@
+entity User {
+	id Integer
+    login String
+    password String
+}
+
+entity Bicycle {
+	id Integer 
+    parkingId Integer
+}
+
+entity Parking {
+	id Integer 
+    capacity Integer
+    currentAmount Integer
+    locationLatitude Double
+    locationLongitude Double
+}
+
+entity BikeTransaction {
+	id Integer 
+    startTime Instant
+    endTime Instant
+    userId Integer
+    bikeId Integer
+    startParkingId Integer
+    endParkingId Integer
+}
+
+
+//relationship ManyToMany {
+//	Job{task(title)} to Task{job}
+//}
+
+// defining multiple OneToMany relationships with comments
+//relationship OneToMany {
+//	Employee{job} to Job,
+	/**
+	* A relationship
+	*/
+//	Department{employee} to
+	/**
+	* Another side of the same relationship
+	*/
+///	Employee
+//}
+
+//relationship ManyToOne {
+//	Employee{manager} to Employee
+//}
+
+// defining multiple oneToOne relationships
+//relationship OneToOne {
+//	JobHistory{job} to Job,
+//	JobHistory{department} to Department,
+//	JobHistory{employee} to Employee
+//}
+
+// Set pagination options
+//paginate JobHistory, Employee with infinite-scroll
+//paginate Job with pagination
+
+// Use Data Transfert Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

@@ -1,0 +1,19 @@
+{
+    "name": "Bicycle",
+    "fields": [
+        {
+            "fieldName": "parkingId",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190525165053",
+    "entityTableName": "bicycle",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
