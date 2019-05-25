@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Bycity - велошеринг в Твери</title>
+  <title>ByCity - велошеринг в Твери</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -21,6 +21,8 @@
   <!-- Custom styles for this template -->
   <link href="css/landing-page.min.css" rel="stylesheet">
   
+  <script type="text/javascript" src="frontscripts.js"></script>
+  
   <link rel="shortcut icon" href="./img/icons/bike.png" type="image/x-icon">
 
 </head>
@@ -31,9 +33,37 @@
   <nav class="navbar navbar-light bg-light static-top">
     <div class="container">
       <a class="navbar-brand" href="#">Bycity</a>
-      <a class="btn btn-primary" href="#">Войти</a>
+	  <a class="navbar-nav ml-auto nav-flex-icons">
+	  <a  href="./user.html"><img src="./img/user3small.jpg" alt="Avatar"  class="rounded-circle z-depth-1"
+            alt="avatar image" height="35" style="display: none; margin-right:10px" id="avatar">
+	  </a>
+	  <p id="username" style="display: none; margin-right: 10px; margin-top: 17px">Илья Акендинов</p>
+      <a class="btn btn-primary" href="#" onclick="OnLoginClick()" id="loginbutton">Войти</a>
     </div>
   </nav>
+  
+<div class="card" id="regform" style="display: none;">
+	<article class="card-body">
+	<a href="" class="float-right btn btn-outline-primary">Зарегестрироваться</a>
+	<h4 class="card-title mb-4 mt-1">Войти</h4>
+		 <form>
+		<div class="form-group">
+			<label>Номер телефона</label>
+			<input name="" class="form-control" id="login" placeholder="Логин" type="tel">
+		</div> <!-- form-group// -->
+		<div class="form-group">
+			<a class="float-right" href="#">Забыли пароль?</a>
+			<label>Пароль</label>
+			<input class="form-control" id="password" placeholder="" type="password">
+		</div> <!-- form-group// --> 
+		<div class="form-group"> 
+		</div> <!-- form-group// -->  
+		<div class="form-group">
+			<button type="submit" class="btn btn-primary btn-block" onclick="OnLoginConfirm()"> Войти  </button>
+		</div> <!-- form-group// -->                                                           
+	</form>
+	</article>
+	</div> <!-- card.// -->
 
   <!-- Masthead -->
   <header class="masthead text-white text-center">
@@ -41,17 +71,12 @@
     <div class="container">
       <div class="row">
         <div class="col-xl-9 mx-auto">
-          <h1 class="mb-5">Первый тверской велошеринг</h1>
+          <h1 class="mb-8">Первый тверской велошеринг</h1>
         </div>
         <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
           <form>
             <div class="form-row">
-              <div class="col-12 col-md-9 mb-2 mb-md-0">
-                <input type="email" class="form-control form-control-lg" placeholder="Введите номер телефона">
-              </div>
-              <div class="col-12 col-md-3">
-                <button type="submit" class="btn btn-block btn-lg btn-primary">Регистрация</button>
-              </div>
+              <p>Сервис для аренды велосипедов</p>
             </div>
           </form>
         </div>
@@ -60,7 +85,7 @@
   </header>
   
 
-  <!-- Image Showcases -->
+  <!-- Карта -->
   <section class="showcase">
     <div class="container-fluid p-0">
       <div class="row no-gutters">
@@ -71,19 +96,6 @@
 
 			
 			<script type="text/javascript">
-		
-				fetch('http://localhost:8080/api/parkings')
-					.then(response => response.json())
-					.then(data => {
-						//console.log(data);
-						
-						//console.log(data[0]);
-						
-						for(var i = 0; i < data.length; i+= 1){							
-							console.log("lat = " + data[i].locationLatitude + " lon = " + data[i].locationLongitude + " curA = " + data[i].currentAmount);
-						}
-						
-				});
 			
 				ymaps.ready(function () {
 					var MainMap = new ymaps.Map("MainMap", {
@@ -95,12 +107,16 @@
 					});
 					MainMap.controls.add("typeSelector").add("zoomControl");
 					
+					var amount = 0;
+					
 					fetch('http://localhost:8080/api/parkings')
 					.then(response => response.json())
 					.then(data => {		
 						for(var i = 0; i < data.length; i+= 1){							
 							console.log("lat = " + data[i].locationLatitude + " lon = " + data[i].locationLongitude + " curA = " + data[i].currentAmount);
-						
+							
+							amount += data[i].currentAmount;
+							
 							myGeoObject = new ymaps.GeoObject({
 							// Описание геометрии.
 							geometry: {
@@ -121,10 +137,10 @@
 							MainMap.geoObjects.add(myGeoObject);
 							
 							}
-						
+						document.getElementById("statistics").innerHTML = "Свободно велосипедов: " + amount;
 					});
 				
-				
+					
 				});
 				
 			</script>
@@ -134,6 +150,7 @@
         <div class="col-lg-6 order-lg-1 my-auto showcase-text">
           <h2>Легко арендовать</h2>
           <p class="lead mb-0">Для аренды вам нужен лишь телефон с поддержкой NFC. Велопарковки расположены по всей Твери</p>
+		  <p class="lead mb-0" id="statistics">Свободно велосипедов:</p>
         </div>
       </div>
     </div>

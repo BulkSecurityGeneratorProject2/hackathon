@@ -125,3 +125,10 @@ footer.footer {
   padding-top: 4rem;
   padding-bottom: 4rem;
 }
+
+.avatar {
+  vertical-align: middle;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}

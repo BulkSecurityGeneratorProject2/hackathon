@@ -11,7 +11,6 @@ public class BicycleDTO implements Serializable {
 
     private Integer parkingId;
 
-
     public Long getId() {
         return id;
     }
