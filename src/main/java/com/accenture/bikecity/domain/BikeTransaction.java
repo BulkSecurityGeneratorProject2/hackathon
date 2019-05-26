@@ -29,16 +29,16 @@ public class BikeTransaction implements Serializable {
     private Instant endTime;
 
     @Column(name = "user_id")
-    private Integer userId;
+    private Long userId;
 
     @Column(name = "bike_id")
-    private Integer bikeId;
+    private Long bikeId;
 
     @Column(name = "start_parking_id")
-    private Integer startParkingId;
+    private Long startParkingId;
 
     @Column(name = "end_parking_id")
-    private Integer endParkingId;
+    private Long endParkingId;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -75,55 +75,55 @@ public class BikeTransaction implements Serializable {
         this.endTime = endTime;
     }
 
-    public Integer getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public BikeTransaction userId(Integer userId) {
+    public BikeTransaction userId(Long userId) {
         this.userId = userId;
         return this;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
-    public Integer getBikeId() {
+    public Long getBikeId() {
         return bikeId;
     }
 
-    public BikeTransaction bikeId(Integer bikeId) {
+    public BikeTransaction bikeId(Long bikeId) {
         this.bikeId = bikeId;
         return this;
     }
 
-    public void setBikeId(Integer bikeId) {
+    public void setBikeId(Long bikeId) {
         this.bikeId = bikeId;
     }
 
-    public Integer getStartParkingId() {
+    public Long getStartParkingId() {
         return startParkingId;
     }
 
-    public BikeTransaction startParkingId(Integer startParkingId) {
+    public BikeTransaction startParkingId(Long startParkingId) {
         this.startParkingId = startParkingId;
         return this;
     }
 
-    public void setStartParkingId(Integer startParkingId) {
+    public void setStartParkingId(Long startParkingId) {
         this.startParkingId = startParkingId;
     }
 
-    public Integer getEndParkingId() {
+    public Long getEndParkingId() {
         return endParkingId;
     }
 
-    public BikeTransaction endParkingId(Integer endParkingId) {
+    public BikeTransaction endParkingId(Long endParkingId) {
         this.endParkingId = endParkingId;
         return this;
     }
 
-    public void setEndParkingId(Integer endParkingId) {
+    public void setEndParkingId(Long endParkingId) {
         this.endParkingId = endParkingId;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove

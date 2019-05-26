@@ -23,19 +23,19 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="user_id" type="integer">
+            <column name="user_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 
-            <column name="bike_id" type="integer">
+            <column name="bike_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 
-            <column name="start_parking_id" type="integer">
+            <column name="start_parking_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 
-            <column name="end_parking_id" type="integer">
+            <column name="end_parking_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 

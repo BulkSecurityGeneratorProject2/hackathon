@@ -44,17 +44,17 @@ public class BikeTransactionResourceIT {
     private static final Instant DEFAULT_END_TIME = Instant.ofEpochMilli(0L);
     private static final Instant UPDATED_END_TIME = Instant.now().truncatedTo(ChronoUnit.MILLIS);
 
-    private static final Integer DEFAULT_USER_ID = 1;
-    private static final Integer UPDATED_USER_ID = 2;
+    private static final Long DEFAULT_USER_ID = 1L;
+    private static final Long UPDATED_USER_ID = 2L;
 
-    private static final Integer DEFAULT_BIKE_ID = 1;
-    private static final Integer UPDATED_BIKE_ID = 2;
+    private static final Long DEFAULT_BIKE_ID = 1L;
+    private static final Long UPDATED_BIKE_ID = 2L;
 
-    private static final Integer DEFAULT_START_PARKING_ID = 1;
-    private static final Integer UPDATED_START_PARKING_ID = 2;
+    private static final Long DEFAULT_START_PARKING_ID = 1L;
+    private static final Long UPDATED_START_PARKING_ID = 2L;
 
-    private static final Integer DEFAULT_END_PARKING_ID = 1;
-    private static final Integer UPDATED_END_PARKING_ID = 2;
+    private static final Long DEFAULT_END_PARKING_ID = 1L;
+    private static final Long UPDATED_END_PARKING_ID = 2L;
 
     @Autowired
     private BikeTransactionRepository bikeTransactionRepository;
@@ -192,10 +192,10 @@ public class BikeTransactionResourceIT {
             .andExpect(jsonPath("$.[*].id").value(hasItem(bikeTransaction.getId().intValue())))
             .andExpect(jsonPath("$.[*].startTime").value(hasItem(DEFAULT_START_TIME.toString())))
             .andExpect(jsonPath("$.[*].endTime").value(hasItem(DEFAULT_END_TIME.toString())))
-            .andExpect(jsonPath("$.[*].userId").value(hasItem(DEFAULT_USER_ID)))
-            .andExpect(jsonPath("$.[*].bikeId").value(hasItem(DEFAULT_BIKE_ID)))
-            .andExpect(jsonPath("$.[*].startParkingId").value(hasItem(DEFAULT_START_PARKING_ID)))
-            .andExpect(jsonPath("$.[*].endParkingId").value(hasItem(DEFAULT_END_PARKING_ID)));
+            .andExpect(jsonPath("$.[*].userId").value(hasItem(DEFAULT_USER_ID.intValue())))
+            .andExpect(jsonPath("$.[*].bikeId").value(hasItem(DEFAULT_BIKE_ID.intValue())))
+            .andExpect(jsonPath("$.[*].startParkingId").value(hasItem(DEFAULT_START_PARKING_ID.intValue())))
+            .andExpect(jsonPath("$.[*].endParkingId").value(hasItem(DEFAULT_END_PARKING_ID.intValue())));
     }
     
     @Test
@@ -211,10 +211,10 @@ public class BikeTransactionResourceIT {
             .andExpect(jsonPath("$.id").value(bikeTransaction.getId().intValue()))
             .andExpect(jsonPath("$.startTime").value(DEFAULT_START_TIME.toString()))
             .andExpect(jsonPath("$.endTime").value(DEFAULT_END_TIME.toString()))
-            .andExpect(jsonPath("$.userId").value(DEFAULT_USER_ID))
-            .andExpect(jsonPath("$.bikeId").value(DEFAULT_BIKE_ID))
-            .andExpect(jsonPath("$.startParkingId").value(DEFAULT_START_PARKING_ID))
-            .andExpect(jsonPath("$.endParkingId").value(DEFAULT_END_PARKING_ID));
+            .andExpect(jsonPath("$.userId").value(DEFAULT_USER_ID.intValue()))
+            .andExpect(jsonPath("$.bikeId").value(DEFAULT_BIKE_ID.intValue()))
+            .andExpect(jsonPath("$.startParkingId").value(DEFAULT_START_PARKING_ID.intValue()))
+            .andExpect(jsonPath("$.endParkingId").value(DEFAULT_END_PARKING_ID.intValue()));
     }
 
     @Test

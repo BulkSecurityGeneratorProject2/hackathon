@@ -14,13 +14,13 @@ public class BikeTransactionDTO implements Serializable {
 
     private Instant endTime;
 
-    private Integer userId;
+    private Long userId;
 
-    private Integer bikeId;
+    private Long bikeId;
 
-    private Integer startParkingId;
+    private Long startParkingId;
 
-    private Integer endParkingId;
+    private Long endParkingId;
 
 
     public Long getId() {
@@ -47,35 +47,35 @@ public class BikeTransactionDTO implements Serializable {
         this.endTime = endTime;
     }
 
-    public Integer getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
-    public Integer getBikeId() {
+    public Long getBikeId() {
         return bikeId;
     }
 
-    public void setBikeId(Integer bikeId) {
+    public void setBikeId(Long bikeId) {
         this.bikeId = bikeId;
     }
 
-    public Integer getStartParkingId() {
+    public Long getStartParkingId() {
         return startParkingId;
     }
 
-    public void setStartParkingId(Integer startParkingId) {
+    public void setStartParkingId(Long startParkingId) {
         this.startParkingId = startParkingId;
     }
 
-    public Integer getEndParkingId() {
+    public Long getEndParkingId() {
         return endParkingId;
     }
 
-    public void setEndParkingId(Integer endParkingId) {
+    public void setEndParkingId(Long endParkingId) {
         this.endParkingId = endParkingId;
     }
 

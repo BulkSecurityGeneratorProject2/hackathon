@@ -36,8 +36,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = HackathonApp.class)
 public class BicycleResourceIT {
 
-    private static final Integer DEFAULT_PARKING_ID = 1;
-    private static final Integer UPDATED_PARKING_ID = 2;
+    private static final Long DEFAULT_PARKING_ID = 1L;
+    private static final Long UPDATED_PARKING_ID = 2L;
 
     @Autowired
     private BicycleRepository bicycleRepository;
@@ -158,7 +158,7 @@ public class BicycleResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(bicycle.getId().intValue())))
-            .andExpect(jsonPath("$.[*].parkingId").value(hasItem(DEFAULT_PARKING_ID)));
+            .andExpect(jsonPath("$.[*].parkingId").value(hasItem(DEFAULT_PARKING_ID.intValue())));
     }
     
     @Test
@@ -172,7 +172,7 @@ public class BicycleResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(bicycle.getId().intValue()))
-            .andExpect(jsonPath("$.parkingId").value(DEFAULT_PARKING_ID));
+            .andExpect(jsonPath("$.parkingId").value(DEFAULT_PARKING_ID.intValue()));
     }
 
     @Test
