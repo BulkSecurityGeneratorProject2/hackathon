@@ -22,7 +22,6 @@ public class BikeTransactionDTO implements Serializable {
 
     private Long endParkingId;
 
-
     public Long getId() {
         return id;
     }
