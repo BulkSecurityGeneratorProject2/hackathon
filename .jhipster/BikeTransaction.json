@@ -11,19 +11,19 @@
         },
         {
             "fieldName": "userId",
-            "fieldType": "Integer"
+            "fieldType": "Long"
         },
         {
             "fieldName": "bikeId",
-            "fieldType": "Integer"
+            "fieldType": "Long"
         },
         {
             "fieldName": "startParkingId",
-            "fieldType": "Integer"
+            "fieldType": "Long"
         },
         {
             "fieldName": "endParkingId",
-            "fieldType": "Integer"
+            "fieldType": "Long"
         }
     ],
     "relationships": [],

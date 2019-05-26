@@ -102,6 +102,13 @@ public class BikeTransactionResource {
         return ResponseUtil.wrapOrNotFound(bikeTransactionDTO);
     }
 
+    @GetMapping("/transactionByUser/{id}")
+    public List<BikeTransactionDTO> getBikeTransactionByUserId(@PathVariable Long id) {
+        log.debug("REST request to get BikeTransaction : {}", id);
+        return bikeTransactionService.findAllByUserId(id);
+    }
+
+
     /**
      * {@code DELETE  /bike-transactions/:id} : delete the "id" bikeTransaction.
      *

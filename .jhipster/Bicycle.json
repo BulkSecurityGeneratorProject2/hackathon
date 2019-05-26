@@ -3,7 +3,7 @@
     "fields": [
         {
             "fieldName": "parkingId",
-            "fieldType": "Integer"
+            "fieldType": "Long"
         }
     ],
     "relationships": [],

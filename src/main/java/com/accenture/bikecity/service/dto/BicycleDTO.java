@@ -9,7 +9,8 @@ public class BicycleDTO implements Serializable {
 
     private Long id;
 
-    private Integer parkingId;
+    private Long parkingId;
+
 
     public Long getId() {
         return id;
@@ -19,11 +20,11 @@ public class BicycleDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getParkingId() {
+    public Long getParkingId() {
         return parkingId;
     }
 
-    public void setParkingId(Integer parkingId) {
+    public void setParkingId(Long parkingId) {
         this.parkingId = parkingId;
     }
 

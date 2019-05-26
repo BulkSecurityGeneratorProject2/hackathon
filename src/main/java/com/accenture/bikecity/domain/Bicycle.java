@@ -22,7 +22,7 @@ public class Bicycle implements Serializable {
     private Long id;
 
     @Column(name = "parking_id")
-    private Integer parkingId;
+    private Long parkingId;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -33,16 +33,16 @@ public class Bicycle implements Serializable {
         this.id = id;
     }
 
-    public Integer getParkingId() {
+    public Long getParkingId() {
         return parkingId;
     }
 
-    public Bicycle parkingId(Integer parkingId) {
+    public Bicycle parkingId(Long parkingId) {
         this.parkingId = parkingId;
         return this;
     }
 
-    public void setParkingId(Integer parkingId) {
+    public void setParkingId(Long parkingId) {
         this.parkingId = parkingId;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove

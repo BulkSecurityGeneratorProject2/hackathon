@@ -25,6 +25,8 @@ public interface BikeTransactionService {
      */
     List<BikeTransactionDTO> findAll();
 
+    List<BikeTransactionDTO> findAllByUserId(Long id);
+
 
     /**
      * Get the "id" bikeTransaction.

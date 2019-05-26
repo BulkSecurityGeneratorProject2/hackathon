@@ -62,6 +62,13 @@ public class BikeTransactionServiceImpl implements BikeTransactionService {
             .collect(Collectors.toCollection(LinkedList::new));
     }
 
+    public List<BikeTransactionDTO> findAllByUserId(Long id) {
+        log.debug("Request to get all BikeTransactions");
+        return bikeTransactionRepository.findAllByUserId(id).stream()
+            .map(bikeTransactionMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
+    }
+
 
     /**
      * Get one bikeTransaction by id.
